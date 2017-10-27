@@ -1,0 +1,43 @@
+
+
+.fl-col, .layout-column {
+
+  display: flex;
+  flex-direction: column;
+}
+
+.fl-row, .layout-row {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+}
+
+.fl-c, .layout-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.fl-c2 {
+  align-items: center;
+}
+
+.fl-jcc {
+  justify-content: center;
+}
+
+.fl-jcfe {
+  justify-content: flex-end;
+}
+
+.fl-sa, .layout-spread {
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+.fl-w, .flex-wrap {
+  flex-wrap: wrap;
+}
+
+.fl {
+  flex: 1 0 auto;
+}

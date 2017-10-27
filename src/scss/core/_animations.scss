@@ -1,0 +1,253 @@
+
+.aw-router-animate--content {
+  //overflow-y: hidden;
+  //overflow-x: hidden;
+
+  [aw-body] {
+    //display: flex;
+    //flex-direction: column;
+    //flex: 1;
+  }
+
+  > [ui-view] {
+    h2 {
+      transition: all .2s;
+    }
+  }
+
+  > [ui-view].ng-enter {
+    //transition: all .8s ease-out;
+    //
+    //[aw-body] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 0.5;
+    transform: translate3d(0, 40px, 0);
+    transition: all .3s ease-out;
+
+    h2 {
+      opacity: 0;
+    }
+
+    //}
+  }
+
+  > [ui-view].ng-enter-active {
+    //[aw-body] {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+
+    //}
+  }
+
+  > [ui-view].ng-leave {
+    transition: all .2s ease-in;
+
+    //[aw-body] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    //transition: all .4s ease-in;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    //}
+
+    h2 {
+      opacity: 0;
+    }
+  }
+
+  > [ui-view].ng-leave-active {
+    //[aw-body] {
+    opacity: 0;
+    transform: translate3d(0, 100px, 0);
+    //}
+  }
+}
+
+.aw-router-animate--root {
+
+  > [ui-view].ng-enter {
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    //transform: translate3d(0, 100px, 0);
+    transition: all .3s ease-out;
+  }
+
+  > [ui-view].ng-enter-active {
+    opacity: 1;
+    //transform: translate3d(0, 0, 0);
+  }
+
+  > [ui-view].ng-leave {
+    transition: all .2s ease-in;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    //transform: translate3d(0, 0, 0);
+  }
+
+  > [ui-view].ng-leave-active {
+    opacity: 0;
+    //transform: translate3d(0, 100px, 0);
+  }
+}
+
+
+
+
+
+
+// ng repeat animation
+// use this class on an wrapper of repeated items
+// <div class="aw-repeat--fade-up-sequent" ng-animate-children="true">
+//    <div ng-repeat="box in vm.boxes">{{box}}</div>
+// </div>
+
+.aw-repeat--fade-up-sequent {
+  >.ng-enter,
+  >.ng-leave{
+    position: relative;
+    transition:all ease-out 0.2s;
+  }
+
+  >.ng-enter,
+  >.ng-leave-active{
+    opacity: .1;
+    transform: translate(0, 150px) !important;
+  }
+
+
+  >.ng-enter-active{
+    opacity:1;
+    transform: translate(0, 0) !important;
+  }
+
+  >.ng-enter-stagger{
+    transition-delay:0.1s !important;
+  }
+
+  >.ng-leave-stagger{
+    transition-delay:0.1s !important;
+  }
+}
+
+
+// note that children should'nt have defined transitions
+
+.aw-repeat--fade-pop-sequent {
+  >.ng-enter,
+  >.ng-leave{
+    position: relative;
+    transition:all ease-out 0.2s;
+  }
+
+  >.ng-enter,
+  >.ng-leave-active{
+    opacity: 0;
+    transform: scale(.8, .8) !important;
+  }
+
+
+  >.ng-enter-active{
+    opacity:1;
+    transform: scale(1, 1) !important;
+  }
+
+  >.ng-enter-stagger{
+    transition-delay:0.1s !important;
+  }
+
+  >.ng-leave-stagger{
+    transition-delay:0.1s !important;
+  }
+}
+
+
+.aw-class-route--delay{
+
+  .aw-repeat--fade-up-sequent ,
+  .aw-repeat--fade-pop-sequent {
+    >.ng-enter,
+    >.ng-leave{
+      position: relative;
+      transition:all ease-out .5s;
+    }
+  }
+  &.aw-scroll-notify--active{
+    >.ng-enter-stagger{
+      transition-delay:0.2s !important;
+    }
+
+    >.ng-leave-stagger{
+      transition-delay:0.2s !important;
+    }
+  }
+}
+
+
+
+
+
+// animation classes to use along with `ng-if`
+
+
+.aw-animate-if--collapse.ng-enter{
+  transition: all .5s ease-out !important;
+}
+.aw-animate-if--collapse.ng-leave {
+  transition: all .5s ease-in !important;;
+}
+.aw-animate-if--collapse.ng-enter,
+.aw-animate-if--collapse.ng-leave.ng-leave-active {
+  opacity: 0;
+  max-height: 0;
+}
+.aw-animate-if--collapse.ng-leave,
+.aw-animate-if--collapse.ng-enter.ng-enter-active {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+
+
+.aw-animate-if--fade {
+  opacity: 1;
+}
+.aw-animate-if--fade.ng-enter,
+.aw-animate-if--fade.ng-leave {
+  transition:all
+  cubic-bezier(0.250, 0.460, 0.450, 0.940)
+  .2s;
+}
+.aw-animate-if--fade.ng-enter,
+.aw-animate-if--fade.ng-leave.ng-leave-active {
+  opacity:0;
+  transform: translate(100px, 0);
+}
+.aw-animate-if--fade.ng-leave,
+.aw-animate-if--fade.ng-enter.ng-enter-active {
+  opacity:1;
+  transform: translate(0, 0);
+}
+
+.aw-fade-in-top{
+  animation: .5s awFadeInTop ease-in;
+}
+
+@keyframes awFadeInTop {
+  0%{
+    transform: translate(0, 100px);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+}

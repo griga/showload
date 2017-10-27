@@ -1,0 +1,9 @@
+ng build --prod -op ../../psy/satellite-device/client/showload -bh /showload/
+ng build --prod -op ../showload-heroku/public
+
+
+
+
+scp -r ./client/showload dev.psyball.com:/home/griga/satellite-device/client
+
+scp -r ./server/showload/ dev.psyball.com:/home/griga/satellite-device/server

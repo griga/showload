@@ -1,0 +1,34 @@
+<h3>Process</h3>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="align-baseline ">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-sm" *ngFor="let limit of bounds.limits" [class.btn-link]="settings.limit == limit" (click)="onLimitChange($event, limit)"> {{limit}}
+                    </label>
+                </div>
+            </div>
+
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th style="width: 50%">command</th>
+                        <th style="width: 25%" *ngFor="let order of bounds.orders">
+                            <label class="btn btn-sm" [class.btn-link]="settings.order == order" (click)="onOrderChange($event, order)"> {{order}}
+                            </label>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let it of models">
+                        <td>{{it.command}}</td>
+                        <td>{{it.cpu}}</td>
+                        <td>{{it.mem}} <small class="ml-1">{{it.bytes | bytes: 2}}</small></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

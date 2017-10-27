@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col">
+            <app-show-speed [settings]="settings" [bounds]="bounds" (onSpeed)="onSpeed($event)" ></app-show-speed>
+      </div>
+  </div>
+  
+    <div class="row">
+      <div class="col-md-6">
+          <app-cpu-graph [data]="data.cpu"></app-cpu-graph>        
+
+
+        <app-process-list [data]="data.process" [settings]="settings" [ram]="data.ram" [bounds]="bounds" (onOrder)="onOrder($event)" (onLimit)="onLimit($event)"></app-process-list>
+            
+
+        <app-lscpu [data]="lscpu" *ngIf="lscpu"></app-lscpu>
+
+        <app-tasks-info [data]="data.task"></app-tasks-info>
+    </div>
+
+    <div class="col-md-6">
+
+        <app-ram-graph [data]="data.ram"></app-ram-graph> 
+        
+        <app-swap-graph [data]="data.swap"></app-swap-graph>        
+    </div>
+   
+    
+  </div>
+</div>
+
+

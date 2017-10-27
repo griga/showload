@@ -1,0 +1,29 @@
+<h3>Swap</h3>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <canvas #chart width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col text-nowrap">
+        <small class="text-muted ml-3">Swap:</small>
+        <span class="badge badge-primary">{{labels.used | bytes:2}}</span>
+        <span class="badge badge-success">{{labels.percent | number : '1.1-1'}}%</span>
+        
+      </div>
+    
+      <div class="col text-muted text-nowrap">
+
+        <span class="mr-2">
+            <small>Total:</small>
+            <span class="badge badge-default">{{labels.total | bytes:2}}</span>
+        </span>        
+        <span class="mr-2">
+            <small>Free:</small>
+            <span class="badge badge-default">{{labels.free | bytes:2}}</span>
+        </span>
+      </div> 
+    </div>
+</div>

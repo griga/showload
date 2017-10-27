@@ -1,0 +1,23 @@
+<h3>Task</h3>
+<div class="container-fluid">
+
+
+    <div class="row" *ngIf="data">
+         
+      <div class="col text-muted text-nowrap mt-3">
+
+        <span class="mr-2">
+            <small>total task:</small>
+            <span class="badge badge-default">{{data.total}}</span>
+        </span>     
+        <span class="mr-2">
+          <small>running:</small>
+          <span class="badge badge-default">{{data.running}}</span>
+      </span>        
+      <span class="mr-2">
+        <small>sleeping:</small>
+        <span class="badge badge-default">{{data.sleeping}}</span>
+    </span>           
+       </div> 
+    </div>
+</div>

@@ -4,5 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
+  // API_URL: 'https://meregivo.herokuapp.com/',
+  API_URL: window.location.protocol + "//" + window.location.hostname + ":" + 3000,
   production: false
 };

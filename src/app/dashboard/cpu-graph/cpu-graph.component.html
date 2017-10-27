@@ -1,0 +1,31 @@
+<h3>CPU</h3>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <canvas #chart id="myChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col text-nowrap">
+        <small class="text-muted ml-3">CPU usage:</small>
+        <span class="badge badge-primary">{{labels.total | number : '1.1-1'}}%</span>
+        
+      </div>
+      <div class="col text-muted text-nowrap">
+
+        <span class="mr-2">
+            <small>User:</small>
+            <span class="badge badge-default">{{labels.user | number : '1.1-1'}}%</span>
+        </span>        
+        <span class="mr-2">
+            <small>System:</small>
+            <span class="badge badge-default">{{labels.system | number : '1.1-1'}}%</span>
+        </span>
+        <span class="mr-3">
+            <small>idle:</small>
+            <span class="badge badge-default">{{labels.idle | number : '1.1-1'}}%</span>
+        </span>
+      </div>
+    </div>
+</div>

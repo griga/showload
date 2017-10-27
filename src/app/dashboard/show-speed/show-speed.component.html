@@ -1,0 +1,7 @@
+<div class="btn-group " data-toggle="buttons">
+    
+     <label class="btn btn-sm" *ngFor="let speed of bounds.speeds" [class.btn-link]="settings.speed == speed" (click)="onSpeedChange($event, speed)" >
+         <input type="radio" name="speeds" autocomplete="off" [checked]="settings.speed == speed"> {{speed}}s
+     </label>
+ 
+ </div>

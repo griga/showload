@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+$font-family-sans-serif: 'Roboto', sans-serif;
+$font-size-base: .9rem;
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+@import "~bootstrap/scss/utilities";
+// @import "~bootstrap/scss/utilities/spacing";
+// @import "~bootstrap/scss/utilities/sizing";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/print";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/tables";
+
+@import "~bootstrap/scss/grid";
+
+@import "core/mixins";
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: url('../assets/brickwall.png') repeat;
+
+
+  @include m22-scrollbar();     
+}
+
+app-root{
+
+}
+
+app-cpu-graph, app-process-list, app-ram-graph, app-swap-graph, app-tasks-info, app-lscpu{
+  background: rgba(white, .8);
+  display: block;
+  padding: .5rem 0 1rem 0 ;
+  margin: 0 0 24px;
+  position: relative;
+  
+  h3{
+    position: absolute;
+    top: 1rem;
+    right: 2.5rem;
+    margin: 0 0 0 0 ;       
+    opacity: 0.1;
+  }
+}
+
+table.table{
+  font-size: 0.8rem;
+  margin: .75rem 0 .5rem;
+
+  color: rgba(#333, .7);
+
+  th{
+    border: 0;
+  }
+
+  td{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

@@ -1,0 +1,20 @@
+:host{
+
+  .btn{
+
+   font-size: 0.8rem;
+    padding: 0.125rem 0.35rem;
+
+    &.btn-secondary{
+      opacity: 0.8;
+    }
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  
+}
+
+
