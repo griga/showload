@@ -18,9 +18,12 @@ var bounds = {
 
 var NAMESPACE = '/showload-socket'
 
-module.exports = function(io) {
+module.exports = function(nsp) {
 
-  var nsp = io.of(NAMESPACE);
+  console.log(11, NAMESPACE);
+  
+
+  // var nsp = io.of(NAMESPACE);
 
   nsp.on('connection', function(socket) {
     console.log('a user connected. count:', Object.keys(nsp.sockets).length);
@@ -34,26 +37,26 @@ module.exports = function(io) {
       })
     }
 
-    socket.on('config', function(update){
+    socket.on('config', (update)=>{
       let restart = false
-      if(update.order && settings.order != update.order && bounds.orders.indexOf(update.order) > -1){
+      if(update.order && settings.order !== update.order && bounds.orders.indexOf(update.order) > -1){
         restart = true
         settings.order = update.order
       } 
 
-      if(update.speed && settings.speed != update.speed && bounds.speeds.indexOf(update.speed) > -1){
+      if(update.speed && settings.speed !== update.speed && bounds.speeds.indexOf(update.speed) > -1){
         restart = true
         settings.speed = update.speed
       } 
 
-      if(update.limit && settings.limit != update.limit && bounds.limits.indexOf(update.limit) > -1){
+      if(update.limit && settings.limit !== update.limit && bounds.limits.indexOf(update.limit) > -1){
         restart = true
         settings.limit = update.limit
       } 
 
       if(restart){
         topStop()
-        started = top.start(settings, function(err, data){
+        started = top.start(settings, (err, data)=>{
           nsp.emit('showload', data)
         })
         nsp.emit('settings', settings)

@@ -4,10 +4,12 @@ import * as io from "socket.io-client";
 import { environment } from "../../environments/environment";
 @Injectable()
 export class SocketService {
-    private host: string = environment.API_URL
+    private host: string = environment.API_URL ;//+ '/showload-socket'
     private socket: any;
     constructor() {
-        this.socket = io(this.host + '/showload-socket');
+        console.log('host', this.host);
+        
+        this.socket = io(this.host );
         this.socket.on("connect", () => this.connected());
         this.socket.on("disconnect", () => this.disconnected());
         this.socket.on("error", (error: string) => {

@@ -5,6 +5,6 @@
 
 export const environment = {
   // API_URL: 'https://meregivo.herokuapp.com/',
-  API_URL: window.location.protocol + "//" + window.location.hostname + ":" + 3000,
+  API_URL: window.location.protocol + "//" + window.location.hostname + ":" + 2000,
   production: false
 };
